@@ -9,15 +9,16 @@ $(document).ready(function(){
         const scrollPosition = Math.floor(window.scrollY);
         const windowWidth = window.innerWidth;
         const isDesktop = windowWidth >= 500;
+        const cardsContainer = $('.horizontal-absolute-child');
         if (scrollPosition >= horizontalParentStartPosition && scrollPosition < horizontalParentEndPosition) {
             const percentage = isDesktop ?
                  (((scrollPosition - horizontalParentStartPosition) / horizontalParentHeight) * 100)
                  :
                  (((scrollPosition - horizontalParentStartPosition) / horizontalParentHeight) * 120)
-            windowWidth >= 500 ? 
-                $('.horizontal-absolute-child').css('transform', `translateX(${10 - percentage}%)`)
+            isDesktop ? 
+                cardsContainer.css('transform', `translateX(${10 - percentage}%)`)
                 :
-                $('.horizontal-absolute-child').css('transform', `translateX(-${percentage}%)`);
+                cardsContainer.css('transform', `translateX(-${percentage}%)`)
         };
     })
 });
