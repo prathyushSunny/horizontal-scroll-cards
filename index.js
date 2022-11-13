@@ -7,9 +7,17 @@ $(document).ready(function(){
 
     $(document).on('scroll', function(){
         const scrollPosition = Math.floor(window.scrollY);
-        if (scrollPosition >= horizontalParentStartPosition && scrollPosition < horizontalParentEndPosition - horizontalParentStartPosition) {
-            const percentage = (((scrollPosition - horizontalParentStartPosition) / horizontalParentHeight) * 100);
-            if (percentage <= 70) $('.horizontal-absolute-child').css('transform', `translateX(-${percentage}%)`);
+        const windowWidth = window.innerWidth;
+        const isDesktop = windowWidth >= 500;
+        if (scrollPosition >= horizontalParentStartPosition && scrollPosition < horizontalParentEndPosition) {
+            const percentage = isDesktop ?
+                 (((scrollPosition - horizontalParentStartPosition) / horizontalParentHeight) * 100)
+                 :
+                 (((scrollPosition - horizontalParentStartPosition) / horizontalParentHeight) * 120)
+            windowWidth >= 500 ? 
+                $('.horizontal-absolute-child').css('transform', `translateX(${10 - percentage}%)`)
+                :
+                $('.horizontal-absolute-child').css('transform', `translateX(-${percentage}%)`);
         };
     })
 });
