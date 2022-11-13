@@ -1,0 +1,38 @@
+:root{
+    --secondary-vh: 300vh;
+}
+
+.vhdiv{
+    height: 100vh;
+}
+
+.vhdiv-x{
+    height: var(--secondary-vh);
+}
+
+.bg-grey{
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.horizontal-parent .vh-div{
+    position: relative;
+    overflow-x: hidden;
+}
+
+.horizontal-absolute-child{
+    padding-inline: 54px;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    justify-content: space-between;
+    width: var(--secondary-vh);
+}
+
+.card-container{
+    height: 350px;
+    width: 100%;
+    border-radius: 10px;
+    background: red;
+}
