@@ -9,7 +9,7 @@ $(document).ready(function(){
         const scrollPosition = Math.floor(window.scrollY);
         if (scrollPosition >= horizontalParentStartPosition && scrollPosition < horizontalParentEndPosition - horizontalParentStartPosition) {
             const percentage = (((scrollPosition - horizontalParentStartPosition) / horizontalParentHeight) * 100);
-            if (percentage <= 50) $('.horizontal-absolute-child').css('transform', `translateX(-${percentage}%)`);
+            if (percentage <= 70) $('.horizontal-absolute-child').css('transform', `translateX(-${percentage}%)`);
         };
     })
 });
